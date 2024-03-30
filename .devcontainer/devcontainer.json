@@ -1,0 +1,19 @@
+{
+  "dockerComposeFile": "../ships_dev/docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "stripe.markdoc-language-support",
+        "bradlc.vscode-tailwindcss",
+        "csstools.postcss",
+        "rvest.vs-code-prettier-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode.makefile-tools",
+        "github.vscode-github-actions"
+      ]
+    }
+  }
+}
