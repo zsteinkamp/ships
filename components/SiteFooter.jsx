@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 const SiteFooter = () => {
   return (
-    <footer className='noprint mt-12 flex items-center justify-between pb-4 pl-8 pr-8 pt-4 font-header'>
+    <footer className='noprint mt-12 flex max-w-2xl items-center justify-between pb-4 pl-8 pr-8 pt-4 font-header'>
       <div>
         Check this{' '}
         <Link href='https://github.com/zsteinkamp/ships'>
