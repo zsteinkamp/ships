@@ -21,40 +21,18 @@ const SiteLayout: React.FC<SiteLayoutProps> = ({ pageProps, children }) => {
   }
 
   return (
-    <>
-      <Head>
-        <link
-          rel='alternate'
-          type='application/rss+xml'
-          title='RSS Feed for steinkamp.us'
-          href='/rss.xml'
-        />
-        <link
-          rel='alternate'
-          type='application/rss+json'
-          title='RSS+JSON Feed for steinkamp.us'
-          href='/rss.json'
-        />
-        <link
-          rel='alternate'
-          type='application/atom+xml'
-          title='ATOM Feed for steinkamp.us'
-          href='/atom.xml'
-        />
-      </Head>
-      <div className='md:grid md:grid-cols-[12rem,80vw] xl:grid-cols-[12rem,60rem] md:justify-center'>
-        <div className='bg-shadebg shadow-lg shadow-shadeshadow md:flex-shrink-0 md:flex-grow-0 md:basis-auto md:shadow-xl'>
-          <SiteHeader />
-        </div>
-        <div className='ml-4 mr-4 min-h-screen pb-8 md:ml-12 md:mr-12 md:max-w-2xl xl:max-w-none md:flex-shrink md:flex-grow md:pt-[2.8rem]'>
-          <h2 className='m-0 h-0 p-0 leading-[0px]' id='top'></h2>
-          <PageLayout pageProps={pageProps}>
-            <main className='min-h-[75vh]'>{children}</main>
-          </PageLayout>
-          <SiteFooter />
-        </div>
+    <div className='md:grid md:grid-cols-[12rem,80vw] xl:grid-cols-[12rem,60rem] md:justify-center'>
+      <div className='bg-shadebg shadow-lg shadow-shadeshadow md:flex-shrink-0 md:flex-grow-0 md:basis-auto md:shadow-xl'>
+        <SiteHeader />
       </div>
-    </>
+      <div className='ml-4 mr-4 min-h-screen pb-8 md:ml-12 md:mr-12 md:max-w-2xl xl:max-w-none md:flex-shrink md:flex-grow md:pt-[2.8rem]'>
+        <h2 className='m-0 h-0 p-0 leading-[0px]' id='top'></h2>
+        <PageLayout pageProps={pageProps}>
+          <main className='min-h-[75vh]'>{children}</main>
+        </PageLayout>
+        <SiteFooter />
+      </div>
+    </div>
   )
 }
 
