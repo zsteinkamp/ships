@@ -27,19 +27,7 @@ const SiteLayout: React.FC<SiteLayoutProps> = ({ pageProps, children }) => {
           rel='alternate'
           type='application/rss+xml'
           title='RSS Feed for steinkamp.us'
-          href='/rss.xml'
-        />
-        <link
-          rel='alternate'
-          type='application/rss+json'
-          title='RSS+JSON Feed for steinkamp.us'
-          href='/rss.json'
-        />
-        <link
-          rel='alternate'
-          type='application/atom+xml'
-          title='ATOM Feed for steinkamp.us'
-          href='/atom.xml'
+          href='/api/rss.xml'
         />
       </Head>
       <div className='md:grid md:grid-cols-[12rem,80vw] xl:grid-cols-[12rem,60rem] md:justify-center'>

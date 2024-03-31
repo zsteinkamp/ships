@@ -1,11 +1,15 @@
-import fs from 'fs'
+import type { NextApiRequest, NextApiResponse } from 'next'
 import { Feed } from 'feed'
-import { PostsListType } from './getPosts'
+import getPosts from '@/util/getPosts'
 
-export default async function generateRssFeed(
-  posts: PostsListType
-): Promise<void> {
-  const site_url = 'https://steinkamp.us/'
+type ResponseData = string
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<ResponseData>
+) {
+  const posts = await getPosts('blog')
+  const site_url = 'https://ships.steinkamp.us/'
 
   //console.log('GENERATE RSS')
 
@@ -19,9 +23,7 @@ export default async function generateRssFeed(
     copyright: `All rights reserved ${new Date().getFullYear()}`,
     generator: 'Feed for Node.js',
     feedLinks: {
-      rss2: `${site_url}/rss.xml`,
-      json: `${site_url}/rss.json`,
-      atom: `${site_url}/atom.xml`,
+      rss2: `${site_url}/api/rss.xml`,
     },
   }
 
@@ -42,8 +44,5 @@ export default async function generateRssFeed(
     })
   })
 
-  // Write out static RSS files
-  fs.writeFileSync('./public/rss.xml', feed.rss2())
-  fs.writeFileSync('./public/rss.json', feed.json1())
-  fs.writeFileSync('./public/atom.xml', feed.atom1())
+  res.status(200).send(feed.rss2())
 }
