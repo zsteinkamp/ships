@@ -1,12 +1,12 @@
 version: '3'
-name: steinkamp_us_prod
+name: ships_prod
 services:
   web:
     build:
       context: .
       target: prod
     ports:
-      - '3125:3125'
+      - '3135:3125'
     restart: unless-stopped
 volumes:
   app_node_modules:
